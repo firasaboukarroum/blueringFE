@@ -1,0 +1,104 @@
+
+<table class="table table-bordered align-top text-center">
+	<thead>
+		<tr>
+		  <td  *ngFor="let head of tableHeader"  class="th_grey">{{head.title}}</td>
+		</tr>
+			 
+	</thead>
+	<tbody>
+	<tr class="dark-blue" *ngFor="let row of tData">
+	 <td colspan="2"> 
+		 <div>
+		 <span>{{row.dataText}}</span>
+		 <div class="same-line">
+		  <i class="fa fa-bars rounded-circle border bars-css"></i><br></div>
+		 <small>{{row.subData}}</small>
+		 </div>
+		 <p class="text-end">
+			
+	 
+		 </p>
+	</td>
+	 
+	<td ><input type="number" [(ngModel)]="row.actualLimit" change="sum()"/></td>
+	 
+	 
+	 <td><input type="number" [(ngModel)]="row.authorizedBalance" change="sum()"/></td>
+	
+	 
+	 <td><input type="number" [(ngModel)]="row.requestedAmount" change="sum()"/></td>
+	 
+	 
+	 <td><input  class="red-font " [(ngModel)]="row.change" change="sum()" /></td>
+	
+	 
+	 <td colspan="3">
+		 <div class="same-line" *ngIf="row.status==='ACTIVE'" >
+		 <span class="badge rounded-pill green-pill ">{{row.status}}</span>
+		 </div>
+	 <div class="same-line" *ngIf="row.status==='DRAFT'" >
+		 <span class="badge rounded-pill yellow-pill">{{row.status}}</span>
+	 </div>
+	 
+	 <i class="fa fa-link bars-css same-line" ></i>
+	 <i class="fa fa-ellipsis-h same-line"></i>
+	</td>
+	
+	</tr>
+	<tr >
+		<td colspan="2" class="td-grey text-end">TOTAL DIRECT</td>
+		<td class="td-grey text-end">{{actualLimit | number:'1.2-2':'en-US' }}</td>
+		<td class="td-grey text-end">{{authorizedBalance | number:'1.2-2':'en-US' }}</td>
+		<td class="td-grey text-end">{{authorizedBalance | number:'1.2-2':'en-US' }}</td>
+		<td class="td-grey text-end" colspan="4"></td>
+	</tr>
+	<tr>
+		<td colspan="2" class="td-grey text-end">TOTAL INDIRECT</td>
+		<td class="td-grey text-end">{{actualLimit | number:'1.2-2':'en-US' }}</td>
+		<td class="td-grey text-end">{{authorizedBalance | number:'1.2-2':'en-US' }}</td>
+		<td class="td-grey text-end">{{authorizedBalance | number:'1.2-2':'en-US' }}</td>
+		<td class="td-grey text-end" colspan="4"></td>
+	</tr>
+	<tr>
+		<td colspan="2" class="td-grey text-end">TOTAL PSE</td>
+		<td class="td-grey text-end">{{actualLimit | number:'1.2-2':'en-US' }}</td>
+		<td class="td-grey text-end">{{authorizedBalance | number:'1.2-2':'en-US' }}</td>
+		<td class="td-grey text-end">{{authorizedBalance | number:'1.2-2':'en-US' }}</td>
+		<td class="td-grey text-end" colspan="4"></td>
+		
+	</tr>
+	<tr class="dark-blue">
+		<td colspan="2" class="td-grey text-end">TOTAL</td>
+		<td class="td-grey text-end">{{actualLimit | number:'1.2-2':'en-US' }}</td>
+		<td class="td-grey text-end">{{authorizedBalance | number:'1.2-2':'en-US' }}</td>
+		<td class="td-grey text-end">{{authorizedBalance | number:'1.2-2':'en-US' }}</td>
+		<td class="td-grey text-end" colspan="4"></td>
+	</tr>
+	<tr>
+		<td colspan="2" class="td-grey text-end">DEDUCTIBLE 100% CASH COLLATERAL</td>
+		<td class="td-grey text-end">{{actualLimit | number:'1.2-2':'en-US' }}</td>
+		<td class="td-grey text-end">{{authorizedBalance | number:'1.2-2':'en-US' }}</td>
+		<td class="td-grey text-end">{{authorizedBalance | number:'1.2-2':'en-US' }}</td>
+		<td class="td-grey text-end" colspan="4"></td>
+	</tr>
+	<tr>
+		<td colspan="2" class="td-grey text-end">NET EXPOSED DEDUCTIBLE 100% CASH CO.</td>
+		<td class="td-grey text-end">{{actualLimit | number:'1.2-2':'en-US' }}</td>
+		<td class="td-grey text-end">{{authorizedBalance | number:'1.2-2':'en-US' }}</td>
+		<td class="td-grey text-end">{{authorizedBalance | number:'1.2-2':'en-US' }}</td>
+		<td class="td-grey text-end" colspan="4"></td>
+	</tr>
+	<tr  class="navbar fixed-bottom bg-sky dark-blue">
+		<div>TOTAL</div>
+		<div>{{authorizedBalance | number:'1.2-2':'en-US' }}</div>
+		<div>{{authorizedBalance | number:'1.2-2':'en-US' }}</div>
+		<div>{{actualLimit | number:'1.2-2':'en-US' }}</div>
+		<div>{{authorizedBalance | number:'1.2-2':'en-US' }}</div>
+	</tr>
+	</tbody>
+</table>
+
+
+
+

@@ -1,0 +1,55 @@
+.table{
+	color: gray;
+}
+.th_grey{
+	background-color: #F5F5F5;
+	font-size: 10px;
+}
+.td-grey{
+	background-color: #FAFAFA;
+	
+}
+.bg-sky{
+	background-color: #F0F8FF;
+}
+.dark-blue{
+	color: #003366;
+	font-weight: 500;
+}
+.rounded{
+	border: 1px solid;
+	border-radius: 50%;
+	padding: 2px;
+}
+
+.red-font{
+	color: red;
+}
+.bars-css{
+	color: skyblue;
+	padding: 5px;
+}
+.green-pill{
+	background-color:lightgreen;
+	color: gray;
+}
+.yellow-pill{
+	background-color:yellow;
+	color: gray;
+}
+small{
+	font-weight: 200;
+}
+tr td:first-of-type { 
+	text-align: left;
+}
+.same-line{
+	display: inline;
+	padding: 10px;
+}
+i {
+	float: right;
+	vertical-align: middle;
+	
+}
+
