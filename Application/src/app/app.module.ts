@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PortfolioTableComponent } from './portfolio-table/portfolio-table.component';
 import {FormsModule} from '@angular/forms';
 import { NumericTextboxModule } from 'ngx-numeric-textbox';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,9 @@ import { NumericTextboxModule } from 'ngx-numeric-textbox';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    NumericTextboxModule
+    NumericTextboxModule,
+    HttpClientModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,104 +1,144 @@
 
-<table class="table table-bordered align-top text-center">
-	<thead>
-		<tr>
-		  <td  *ngFor="let head of tableHeader"  class="th_grey">{{head.title}}</td>
-		</tr>
-			 
-	</thead>
-	<tbody>
-	<tr class="dark-blue" *ngFor="let row of tData">
-	 <td colspan="2"> 
-		 <div>
-		 <span>{{row.dataText}}</span>
-		 <div class="same-line">
-		  <i class="fa fa-bars rounded-circle border bars-css"></i><br></div>
-		 <small>{{row.subData}}</small>
-		 </div>
-		 <p class="text-end">
+<div class="divTable table-border align-top text-center">
+	<div class="divTableBody ">
+		<div class="divTableRow ">
+			<div class="divTableCell border-right cell-border" style="width: 500px;">FACILITY</div>
+			<div class="divTableCell cell-border" style="width: 200px;">ACTUAL LIMIT</div>
+			<div class="divTableCell cell-border border-right" style="width: 300px;">AUTHORIZED BALANCE</div>
+			<div class="divTableCell cell-border" style="width: 200px;">REQUESTED AMOUNT</div>
+			<div class="divTableCell cell-border" style="width: 200px;">CHANGE</div>
+			<div class="divTableCell float-left cell-border" style="width: 300px;" >STATUS</div>
 			
-	 
-		 </p>
-	</td>
-	 
-	<td ><input type="number" [(ngModel)]="row.actualLimit" change="sum()"/></td>
-	 
-	 
-	 <td><input type="number" [(ngModel)]="row.authorizedBalance" change="sum()"/></td>
-	
-	 
-	 <td><input type="number" [(ngModel)]="row.requestedAmount" change="sum()"/></td>
-	 
-	 
-	 <td><input  class="red-font " [(ngModel)]="row.change" change="sum()" /></td>
-	
-	 
-	 <td colspan="3">
-		 <div class="same-line" *ngIf="row.status==='ACTIVE'" >
-		 <span class="badge rounded-pill green-pill ">{{row.status}}</span>
-		 </div>
-	 <div class="same-line" *ngIf="row.status==='DRAFT'" >
-		 <span class="badge rounded-pill yellow-pill">{{row.status}}</span>
-	 </div>
-	 
-	 <i class="fa fa-link bars-css same-line" ></i>
-	 <i class="fa fa-ellipsis-h same-line"></i>
-	</td>
-	
-	</tr>
-	<tr >
-		<td colspan="2" class="td-grey text-end">TOTAL DIRECT</td>
-		<td class="td-grey text-end">{{actualLimit | number:'1.2-2':'en-US' }}</td>
-		<td class="td-grey text-end">{{authorizedBalance | number:'1.2-2':'en-US' }}</td>
-		<td class="td-grey text-end">{{authorizedBalance | number:'1.2-2':'en-US' }}</td>
-		<td class="td-grey text-end" colspan="4"></td>
-	</tr>
-	<tr>
-		<td colspan="2" class="td-grey text-end">TOTAL INDIRECT</td>
-		<td class="td-grey text-end">{{actualLimit | number:'1.2-2':'en-US' }}</td>
-		<td class="td-grey text-end">{{authorizedBalance | number:'1.2-2':'en-US' }}</td>
-		<td class="td-grey text-end">{{authorizedBalance | number:'1.2-2':'en-US' }}</td>
-		<td class="td-grey text-end" colspan="4"></td>
-	</tr>
-	<tr>
-		<td colspan="2" class="td-grey text-end">TOTAL PSE</td>
-		<td class="td-grey text-end">{{actualLimit | number:'1.2-2':'en-US' }}</td>
-		<td class="td-grey text-end">{{authorizedBalance | number:'1.2-2':'en-US' }}</td>
-		<td class="td-grey text-end">{{authorizedBalance | number:'1.2-2':'en-US' }}</td>
-		<td class="td-grey text-end" colspan="4"></td>
-		
-	</tr>
-	<tr class="dark-blue">
-		<td colspan="2" class="td-grey text-end">TOTAL</td>
-		<td class="td-grey text-end">{{actualLimit | number:'1.2-2':'en-US' }}</td>
-		<td class="td-grey text-end">{{authorizedBalance | number:'1.2-2':'en-US' }}</td>
-		<td class="td-grey text-end">{{authorizedBalance | number:'1.2-2':'en-US' }}</td>
-		<td class="td-grey text-end" colspan="4"></td>
-	</tr>
-	<tr>
-		<td colspan="2" class="td-grey text-end">DEDUCTIBLE 100% CASH COLLATERAL</td>
-		<td class="td-grey text-end">{{actualLimit | number:'1.2-2':'en-US' }}</td>
-		<td class="td-grey text-end">{{authorizedBalance | number:'1.2-2':'en-US' }}</td>
-		<td class="td-grey text-end">{{authorizedBalance | number:'1.2-2':'en-US' }}</td>
-		<td class="td-grey text-end" colspan="4"></td>
-	</tr>
-	<tr>
-		<td colspan="2" class="td-grey text-end">NET EXPOSED DEDUCTIBLE 100% CASH CO.</td>
-		<td class="td-grey text-end">{{actualLimit | number:'1.2-2':'en-US' }}</td>
-		<td class="td-grey text-end">{{authorizedBalance | number:'1.2-2':'en-US' }}</td>
-		<td class="td-grey text-end">{{authorizedBalance | number:'1.2-2':'en-US' }}</td>
-		<td class="td-grey text-end" colspan="4"></td>
-	</tr>
-	<tr  class="navbar fixed-bottom bg-sky dark-blue">
-		<div>TOTAL</div>
-		<div>{{authorizedBalance | number:'1.2-2':'en-US' }}</div>
-		<div>{{authorizedBalance | number:'1.2-2':'en-US' }}</div>
-		<div>{{actualLimit | number:'1.2-2':'en-US' }}</div>
-		<div>{{authorizedBalance | number:'1.2-2':'en-US' }}</div>
-	</tr>
-	</tbody>
-</table>
+		</div>
+		<div class="divTableRow" *ngFor="let facility of facilities">
+			<div class="divTableCell">
+				<div>
+		 <span>{{facility.description}}</span>
+		 <div class="same-line float-right ">
+			<div ngbDropdown class="d-inline-block same-line icon-position">
+			<button class="btn" id="dropdownList" ngbDropdownToggle><i class="fa fa-bars rounded-circle border bars-css"></i></button>
+			<div ngbDropdownMenu aria-labelledby="dropdownList">
+			<div ngbDropdownItem>
+				<div>
+				<p >ECONOMIC SECTOR</p>
+				<p class="dark-blue">{{facility.economicSector}}</p>
+				</div>
+				<div class="same-line">
+				<p>INTEREST TYPE</p>
+				<p class="dark-blue">{{facility.economicSector}}</p>
+				</div>
+				<div>
+				<p>SPREAD-OR-RATE</p>
+				<p class="dark-blue">{{facility.spreadOrRate}}</p>
+				</div>
+				<div>
+				<p>INTEREST RATE</p>
+				<p class="dark-blue"> {{facility.interestRate}}</p>
+				</div>
+			</div>
+				
+			</div>
+			</div><br>
+		</div>
+		</div>
+		 <small>{{facility.subDescription}}</small>
+		 
+			</div>
+		<div class="divTableCell">{{facility.actualLimit}}</div>
+		<div class="divTableCell border-right">{{facility.authorizedAmount}}</div>
+		<div class="divTableCell">{{facility.requestedAmount}}</div>
+		<div class="divTableCell">{{facility.facilityChange}}</div>
 
+
+
+		<div class="divTableCell">
+			<span class="badge rounded-pill green-pill ">ACTIVE</span>
+	
+	<div ngbDropdown class="d-inline-block link-position ">
+		<button class="btn" id="dropdownList2" ngbDropdownToggle><i class="fa fa-link bars-css same-line" ></i></button>
+			<div ngbDropdownMenu aria-labelledby="dropdownList2">
+			  <div ngbDropdownItem>
+				<p>LINKED SECURITIES</p>
+				<div *ngFor="let security of facility.securities">
+				<p>{{security.description}}</p> 
+				<small>{{security.subDescription}}</small>
+				<hr>
+				</div>
+			  </div>
+			</div>
+	</div>
+	
+	<i class="fa fa-ellipsis-h same-line ellipsis-positon"></i>
+	 </div>
+		</div>
+
+		<div class="divTableRow background-grey font-gray total-height">
+			<div class="text-end divTableCell">TOTAL DIRECT</div>
+			<div class="text-end divTableCell">{{actualLimit | number:'1.2-2':'en-US' }}</div>
+			<div class="text-end divTableCell">{{authorizedBalance | number:'1.2-2':'en-US' }}</div>
+			<div class="text-end divTableCell">{{authorizedBalance | number:'1.2-2':'en-US' }}</div>
+			<div class="text-end divTableCell" ></div>
+			<div class="text-end divTableCell" ></div>	
+		</div>
+
+		<div class="divTableRow background-grey font-gray total-height">
+			<div class="text-end divTableCell">TOTAL INDIRECT</div>
+			<div class="text-end divTableCell">{{actualLimit | number:'1.2-2':'en-US' }}</div>
+			<div class="text-end divTableCell">{{authorizedBalance | number:'1.2-2':'en-US' }}</div>
+			<div class="text-end divTableCell">{{authorizedBalance | number:'1.2-2':'en-US' }}</div>
+			<div class="text-end divTableCell" ></div>
+			<div class="text-end divTableCell" ></div>	
+		</div>
+
+		<div class="divTableRow background-grey font-gray total-height">
+			<div class="text-end divTableCell">TOTAL PSE</div>
+			<div class="text-end divTableCell">{{actualLimit | number:'1.2-2':'en-US' }}</div>
+			<div class="text-end divTableCell">{{authorizedBalance | number:'1.2-2':'en-US' }}</div>
+			<div class="text-end divTableCell">{{authorizedBalance | number:'1.2-2':'en-US' }}</div>
+			<div class="text-end divTableCell" ></div>
+			<div class="text-end divTableCell" ></div>	
+		</div>
+
+		<div class="divTableRow ">
+			<div class="td-grey text-end divTableCell total-height">TOTAL </div>
+			<div class="text-end divTableCell">{{actualLimit | number:'1.2-2':'en-US' }}</div>
+			<div class="text-end divTableCell">{{authorizedBalance | number:'1.2-2':'en-US' }}</div>
+			<div class="text-end divTableCell">{{authorizedBalance | number:'1.2-2':'en-US' }}</div>
+			<div class="background-grey text-end divTableCell" ></div>
+			<div class="background-grey text-end divTableCell" ></div>	
+		</div>
+
+		<div class="divTableRow background-grey font-gray total-height">
+			<div class="text-end divTableCell">DEDUCTIBLE 100% CASH COLLATERAL</div>
+			<div class="text-end divTableCell">{{actualLimit | number:'1.2-2':'en-US' }}</div>
+			<div class="text-end divTableCell">{{authorizedBalance | number:'1.2-2':'en-US' }}</div>
+			<div class="text-end divTableCell">{{authorizedBalance | number:'1.2-2':'en-US' }}</div>
+			<div class="text-end divTableCell" ></div>
+			<div class="text-end divTableCell" ></div>	
+		</div>
+
+		<div class="divTableRow background-grey font-gray total-height">
+			<div class="text-end divTableCell">NET EXPOSED DEDUCTIBLE 100% CASH CO.</div>
+			<div class="text-end divTableCell">{{actualLimit | number:'1.2-2':'en-US' }}</div>
+			<div class="text-end divTableCell">{{authorizedBalance | number:'1.2-2':'en-US' }}</div>
+			<div class="text-end divTableCell">{{authorizedBalance | number:'1.2-2':'en-US' }}</div>
+			<div class="text-end divTableCell" ></div>
+			<div class="text-end divTableCell" ></div>	
+		</div>
+
+		<div  class=" fixed-bottom bg-sky dark-blue total-height divTableRow">
+		<div class="text-end divTableCell">TOTAL</div>
+		<div class="text-end divTableCell">{{authorizedBalance | number:'1.2-2':'en-US' }}</div>
+		<div class="text-end divTableCell">{{authorizedBalance | number:'1.2-2':'en-US' }}</div>
+		<div class="text-end divTableCell">{{actualLimit | number:'1.2-2':'en-US' }}</div>
+		<div class="text-end divTableCell">{{authorizedBalance | number:'1.2-2':'en-US' }}</div>
+		</div>
+
+
+	</div>
+
+
+</div>
 
 
 

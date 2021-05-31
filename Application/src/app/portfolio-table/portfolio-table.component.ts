@@ -1,6 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Header } from '../header';
 import {TablaData} from '../tabla-data';
+import { Facility } from '../facility';
+import { FacilityServiceService } from '../facility-service.service';
+
 
 @Component({
   selector: 'app-portfolio-table',
@@ -8,16 +11,20 @@ import {TablaData} from '../tabla-data';
   styleUrls: ['./portfolio-table.component.css']
 })
 export class PortfolioTableComponent implements OnInit {
- 
+  facilities: Facility[] = [];
   @Input() tableHeader: Header[] = [];
   @Input() tData: TablaData[] = [];
   actualLimit = 0;
   authorizedBalance = 0;
   
-  constructor() { }
+  constructor(private facilityService: FacilityServiceService) { }
 
   ngOnInit(): void {
     this.sum();
+     this.facilityService.getFacilities().subscribe((data: Facility[]) => {
+     this.facilities = data;
+});
+
     
   }
 
@@ -26,8 +33,7 @@ export class PortfolioTableComponent implements OnInit {
     this.tData.map(row=>{
       this.actualLimit=this.actualLimit+row.actualLimit;
     }
-    );
-    console.log("hello"); 
+    ); 
     return this.actualLimit;
   }
   zeroFunction(){
