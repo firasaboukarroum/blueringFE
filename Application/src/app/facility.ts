@@ -1,4 +1,5 @@
 import { Security } from './security';
+import { Status } from './status';
 
 export class Facility {
 	id! : number;
@@ -14,6 +15,7 @@ export class Facility {
 	reviewDate! : Date;
 	interestRate! : number;
 	interestPeriod! : string;
+	baseRate! : string;
 	intervalPeriod! : number;
 	penaltyRate! : string; 
 	CHDBCommissionPerMill! : number;
@@ -25,4 +27,5 @@ export class Facility {
 	internalType! : string;
 	country! : string;
 	securities: Security[]=[];
+	status!: Status;
 }

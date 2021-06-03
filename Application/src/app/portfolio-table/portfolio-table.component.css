@@ -1,19 +1,12 @@
-.table{
-	color: gray;
-}
-.th_grey{
-	background-color: #F5F5F5;
-	font-size: 10px;
-}
+
 .background-grey{
 	background-color: #FAFAFA;
 	
 }
-.bg-sky{
-	background-color: #F0F8FF;
-}
+
 .dark-blue{
-	color: #003366;
+	color: #1B3454;
+	font-weight: 500;
 }
 .dropdown-toggle::after {
     display:none;
@@ -25,26 +18,40 @@
 }
 
 .red-font{
-	color: red;
+	color: #C70000;
+	border: 1px solid #f5f5ff;
+	display: table-cell;
+	padding: 3px 10px;
 }
-.bars-css{
-	color: skyblue;
+.fa-bars{
+	color: #4D91E4;
 	padding: 5px;
+	border: 3px solid #4D91E4;
 }
+
 .green-pill{
-	background-color:lightgreen;
-	color: gray;
+	background-color:#BBEDD2;
+	color: #575757;
+}
+.pink-pill{
+	background-color:pink;
+	color: #575757;
 }
 .yellow-pill{
-	background-color:yellow;
-	color: gray;
+	background-color:#FEEE74;
+	color: #575757;
+}
+.fa-link{
+	color: #4D91E4;
+	position: relative;
+	left:20px;
+
+	
 }
 small{
 	font-weight: 200;
 }
-tr td:first-of-type { 
-	text-align: left;
-}
+
 .same-line{
 	display: inline;
 	padding: 10px;
@@ -53,6 +60,9 @@ i {
 	float: right;
 	vertical-align: middle;
 	
+}
+button{
+	widows: 100px;
 }
 .divTable{
 	display: table;
@@ -64,8 +74,15 @@ i {
 	display: table-row;
 }
 .divTableHeading {
-	background-color: #EEE;
+	
 	display: table-header-group;
+	top: 190px;
+	left: 333px;
+	width: 1005px;
+	height: 32px;
+	background: #F5F5F5 0% 0% no-repeat padding-box;
+	border-radius: 3px 3px 0px 0px;
+	opacity: 1;
 }
 .divTableCell, .divTableHead {
 	border: 1px solid #f5f5ff;
@@ -96,17 +113,24 @@ i {
 	background-color: #FAFAFA;
 	color: gray;
 }
-.divTableRow .divTableCell:first-of-type { 
-	text-align: left;
-	border-right-width: 5px;
-	border-right-color: #F5F5F5;
-}
+
 
 .divTableRow .divTableCell:last-of-type { 
 	text-align: left;
 	
 }
-
+.divTableRow .divTableCell:first-of-type { 
+	text-align: left;
+	
+}
+.total-height{
+	height: 50px;
+}
+.align-total{
+	
+  padding-left: 2px;
+  
+}
 .float-right{
 	float: right;
 }
@@ -116,7 +140,7 @@ i {
 }
 
 small{
-	color:gray;
+	color:#6E6E6E;
 }
 
 .icon-position {
@@ -127,21 +151,57 @@ small{
 float-left{
 	float: left;
 }
-.link-position{
-	position: relative;
-   left: 40px;
-    
-}
+
 .ellipsis-positon{
 	position: relative;
-	right:15px;
 	top:5px;
 }
 .font-gray{
-	color: gray;
-}
-.total-height{
-height: 50px;
+	color: #6E6E6E;
 }
 
+.blue-row{
+	background-color: #E5EFFB;
+	color: #1B3454;
+	height: 50px;
+	
+
+}
+
+.green-font{
+	color:#20C36B;
+	border: 1px solid #f5f5ff;
+	display: table-cell;
+	padding: 3px 10px;
+}
+.stick-bottom{
+	position: sticky;
+    top: 0
+}
+.border-right-blue{
+	border-right-width: 5px;
+	border-right-color: #BEDBFF;
+
+}
+.font-size{
+font-size:12px;
+}
+.font-orange{
+	color:orange;
+}
+.no-border{
+	border:none;
+	padding-right: 100px;
+}
+p { margin-top:0 }
+
+.padding-right{
+	padding-right: 100px;
+}
+.border-bottom{
+	border-right: none;
+	border-left: none;
+	border-top: none;
+	border-bottom: black
+}
 
