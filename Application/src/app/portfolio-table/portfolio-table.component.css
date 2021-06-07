@@ -1,7 +1,7 @@
 
 .background-grey{
 	background-color: #FAFAFA;
-	
+
 }
 
 .dark-blue{
@@ -20,7 +20,7 @@
 .red-font{
 	color: #C70000;
 	border: 1px solid #f5f5ff;
-	display: table-cell;
+
 	padding: 3px 10px;
 }
 .fa-bars{
@@ -46,7 +46,8 @@
 	position: relative;
 	left:20px;
 
-	
+
+
 }
 small{
 	font-weight: 200;
@@ -59,23 +60,19 @@ small{
 i {
 	float: right;
 	vertical-align: middle;
-	
+
 }
-button{
-	widows: 100px;
-}
+
 .divTable{
-	display: table;
+
 	width: 100%;
 	color: gray
 }
 
-.divTableRow {
-	display: table-row;
-}
+
 .divTableHeading {
-	
-	display: table-header-group;
+
+
 	top: 190px;
 	left: 333px;
 	width: 1005px;
@@ -85,23 +82,23 @@ button{
 	opacity: 1;
 }
 .divTableCell, .divTableHead {
-	border: 1px solid #f5f5ff;
-	display: table-cell;
+	border-bottom: 1px solid #f5f5ff;
+  display: inline-block;
 	padding: 3px 10px;
-	
+
 }
 .divTableHeading {
 	background-color: #EEE;
-	display: table-header-group;
+
 	font-weight: bold;
 }
 .divTableFoot {
 	background-color: #EEE;
-	display: table-footer-group;
+
 	font-weight: bold;
 }
 .divTableBody {
-	display: table-row-group;
+
 	color: #003366;
 }
 .table-border{
@@ -115,21 +112,19 @@ button{
 }
 
 
-.divTableRow .divTableCell:last-of-type { 
+.divTableRow .divTableCell:last-of-type {
 	text-align: left;
-	
+	padding-top:25px;
+
 }
-.divTableRow .divTableCell:first-of-type { 
-	text-align: left;
-	
-}
+
 .total-height{
 	height: 50px;
 }
 .align-total{
-	
+
   padding-left: 2px;
-  
+
 }
 .float-right{
 	float: right;
@@ -138,7 +133,9 @@ button{
 	border-right-width: 5px;
 	border-right-color: #F5F5F5;
 }
-
+.border-none{
+  border: none;
+}
 small{
 	color:#6E6E6E;
 }
@@ -146,15 +143,18 @@ small{
 .icon-position {
     position: relative;
     bottom: 30px;
-    
+
 }
 float-left{
 	float: left;
 }
+.vertical-align-middle{
+  vertical-align: middle;
+}
 
 .ellipsis-positon{
 	position: relative;
-	top:5px;
+	top:20px;
 }
 .font-gray{
 	color: #6E6E6E;
@@ -164,19 +164,19 @@ float-left{
 	background-color: #E5EFFB;
 	color: #1B3454;
 	height: 50px;
-	
+
 
 }
 
 .green-font{
 	color:#20C36B;
 	border: 1px solid #f5f5ff;
-	display: table-cell;
+
 	padding: 3px 10px;
 }
 .stick-bottom{
-	position: sticky;
-    top: 0
+	position: fixed;
+    bottom: 0
 }
 .border-right-blue{
 	border-right-width: 5px;
@@ -184,7 +184,7 @@ float-left{
 
 }
 .font-size{
-font-size:12px;
+font-size:14px;
 }
 .font-orange{
 	color:orange;
@@ -204,4 +204,9 @@ p { margin-top:0 }
 	border-top: none;
 	border-bottom: black
 }
-
+.dropdown-menu-moreButtons {
+left: -250px ! important;
+}
+.no-outline{
+	box-shadow: none;
+}

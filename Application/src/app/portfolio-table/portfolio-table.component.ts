@@ -13,27 +13,30 @@ import { FacilityServiceService } from '../facility-service.service';
 export class PortfolioTableComponent implements OnInit {
   facilities: Facility[] = [];
   @Input() tableHeader: Header[] = [];
+  @Input() tableHeaderSecurity: Header[] = [];
   @Input() tData: TablaData[] = [];
+  @Input() clr: string = 'red';
   actualLimit = 0;
   authorizedBalance = 0;
-  
+
   constructor(private facilityService: FacilityServiceService) { }
 
   ngOnInit(): void {
-    this.sum();
+
      this.facilityService.getFacilities().subscribe((data: Facility[]) => {
      this.facilities = data;
 });
+    this.sum();
 
-    
   }
 
    sum(){
     this.actualLimit=0;
-    this.tData.map(row=>{
+    this.facilities.map(row=>{
       this.actualLimit=this.actualLimit+row.actualLimit;
     }
-    ); 
+    );
+    console.log(this.facilities);
     return this.actualLimit;
   }
   zeroFunction(){

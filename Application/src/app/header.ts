@@ -4,5 +4,6 @@ export interface Header {
 	title: string;
 	type: string;
 	border:number;
-	borderType: any;
+	color: any;
+  borderType:string;
 }
