@@ -6,4 +6,5 @@ export interface Header {
 	border:number;
 	color: any;
   borderType:string;
+  hasTotal:boolean;
 }

@@ -8,7 +8,7 @@ export class Facility {
 	actualLimit! : number;
 	authorizedAmount! : number;
 	requestedAmount! : number;
-	facilityChange! : number; 
+	facilityChange! : number;
 	economicSector! : string;
 	interestType! : string;
 	spreadOrRate! : number;
@@ -17,7 +17,7 @@ export class Facility {
 	interestPeriod! : string;
 	baseRate! : string;
 	intervalPeriod! : number;
-	penaltyRate! : string; 
+	penaltyRate! : string;
 	CHDBCommissionPerMill! : number;
 	sourceOfRepayment! : string;
 	useOfFunds! : string;
@@ -28,4 +28,5 @@ export class Facility {
 	country! : string;
 	securities: Security[]=[];
 	status!: Status;
+	facilityType!: string;
 }

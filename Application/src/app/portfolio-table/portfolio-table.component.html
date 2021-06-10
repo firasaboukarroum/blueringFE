@@ -1,60 +1,61 @@
 
 <div class="divTable border-none font-size ">
-  <div class="divTableRow background-grey font-gray" style="width:100%">
+  <div class="divTableRowBorder background-grey font-gray" style="width:100%">
     <ng-template ngFor let-header [ngForOf]="tableHeader"  >
       <div class="divTableCell " [ngStyle]="{'width': header.size  + '%','border-right-width':header.border +'px','border-right-style':header.borderType,'border-right-color':header.color}">
         <div>{{header.title}}</div>
       </div>
     </ng-template>
   </div>
-  <ng-template ngFor let-facility [ngForOf]="facilities" let-j="index">
-    <div class="divTableRow">
+  <ng-template ngFor let-row [ngForOf]="tableData" let-j="index">
+    <div class="divTableRowBorder">
       <ng-template ngFor let-header [ngForOf]="tableHeader" let-i="index">
 
-        <div *ngIf="header.prop=='facilityDescription'" class="divTableCell vertical-align-middle" [ngStyle]="{'width': header.size  + '%','border-right-width':header.border +'px','border-right-style':header.borderType,'border-right-color':header.color}">
-          <p class="dark-blue">{{facility.description}}</p>
-          <small>{{facility.subDescription}}</small>
+        <div *ngIf="header.prop=='facilityDescription'" class="divTableCell vertical-align-middle " [ngStyle]="{'width': header.size  + '%','border-right-width':header.border +'px','border-right-style':header.borderType,'border-right-color':header.color}">
+          <p class="dark-blue">{{row.description}}</p>
+          <small>{{row.subDescription}}</small>
         </div>
         <div *ngIf="header.prop=='iconMoreButtons'" class="divTableCell" [ngStyle]="{'width': header.size  + '%','border-right-width':header.border +'px','border-right-style':header.borderType,'border-right-color':header.color}">
-          <div ngbDropdown class="d-inline-block same-line icon-position dropdown-menu-center">
+          <div ngbDropdown class=" same-line  dropdown-menu-center">
             <button class="btn no-outline " id="dropdownList" ngbDropdownToggle><i class="fa fa-bars rounded-circle "></i></button>
             <div ngbDropdownMenu aria-labelledby="dropdownList"  class="dropdown-menu-moreButtons" style="position: absolute; ">
               <div ngbDropdownItem class="font-size ">
-                <div class="divTableRow ">
-                  <div class="divTableCell no-border"> ECONOMIC SECTOR<p class="dark-blue">{{facility.economicSector}}</p></div>
-                  <div class="divTableCell no-border">PENALTY RATE<p class="font-orange">{{facility.penaltyRate}}</p></div>
+
+                <div class="divTableRow" style="width: 100%">
+                  <div class="divTableCellSub no-border" style="width: 50%" > ECONOMIC SECTOR<p class="dark-blue">{{row.economicSector}}</p></div>
+                  <div class="divTableCellSub no-border" style="width: 50%">PENALTY RATE<p class="font-orange">{{row.penaltyRate}}</p></div>
                 </div>
-                <div class="divTableRow">
-                  <div class="divTableCell no-border">INTEREST RATE<p class="dark-blue">{{facility.interestRate}}</p></div>
-                  <div class="divTableCell no-border">CHDB COMMISSION PER MILL<p class="dark-blue">{{facility.CHDBCommissionPerMill}}</p></div>
+                <div class="divTableRow" style="width: 100%">
+                  <div class="divTableCellSub no-border" style="width: 50%">INTEREST RATE<p class="dark-blue">{{row.interestRate}}</p></div>
+                  <div class="divTableCellSub no-border" style="width: 50%">CHDB COMMISSION PER MILL<p class="dark-blue">{{row.CHDBCommissionPerMill}}</p></div>
                 </div>
-                <div class="divTableRow">
-                  <div class="divTableCell no-border">BASE RATE<p class="dark-blue">{{facility.baseRate}}</p></div>
-                  <div class="divTableCell no-border">SOURCE OF PAYMENT<p class="dark-blue">{{facility.sourceOfRepayment}}</p></div>
+                <div class="divTableRow" style="width: 100%">
+                  <div class="divTableCellSub no-border" style="width: 50%">BASE RATE<p class="dark-blue">{{row.baseRate}}</p></div>
+                  <div class="divTableCellSub no-border" style="width: 50%">SOURCE OF PAYMENT<p class="dark-blue">{{row.sourceOfRepayment}}</p></div>
                 </div>
-                <div class="divTableRow">
-                  <div class="divTableCell no-border">SPREAD + OR - RATE<p class="dark-blue">{{facility.spreadOrRate}}</p></div>
-                  <div class="divTableCell no-border">USE OF FUNDS<p class="dark-blue">{{facility.useOfFunds}}</p></div>
+                <div class="divTableRow" style="width: 100%">
+                  <div class="divTableCellSub no-border" style="width: 50%">SPREAD + OR - RATE<p class="dark-blue">{{row.spreadOrRate}}</p></div>
+                  <div class="divTableCellSub no-border" style="width: 50%">USE OF FUNDS<p class="dark-blue">{{row.useOfFunds}}</p></div>
                 </div>
-                <div class="divTableRow">
-                  <div class="divTableCell no-border">REVIEW DATE OR VARIABLE INTERSET<p class="dark-blue">{{facility. reviewDate}}</p></div>
-                  <div class="divTableCell no-border">REPAYMENT TERMS<p class="font-orange">{{facility.repaymentTerms}}</p></div>
+                <div class="divTableRow" style="width: 100%">
+                  <div class="divTableCellSub no-border" style="width: 50%">REVIEW DATE OR VARIABLE INTERSET<p class="dark-blue">{{row. reviewDate}}</p></div>
+                  <div class="divTableCellSub no-border" style="width: 50%">REPAYMENT TERMS<p class="font-orange">{{row.repaymentTerms}}</p></div>
                 </div>
-                <div class="divTableRow">
-                  <div class="divTableCell no-border">INTEREST RATE<p class="dark-blue">{{facility. interestRate}}</p></div>
-                  <div class="divTableCell no-border">TOTAL NUMBER OF PAYMENTS<p class="dark-blue">{{facility.totalNumberOfPayments}}</p></div>
+                <div class="divTableRow" style="width: 100%">
+                  <div class="divTableCellSub no-border" style="width: 50%">INTEREST RATE<p class="dark-blue">{{row. interestRate}}</p></div>
+                  <div class="divTableCellSub no-border" style="width: 50%">TOTAL NUMBER OF PAYMENTS<p class="dark-blue">{{row.totalNumberOfPayments}}</p></div>
                 </div>
-                <div class="divTableRow">
-                  <div class="divTableCell no-border">INTEREST PERIOD<p class="dark-blue">{{facility. interestPeriod}}</p></div>
-                  <div class="divTableCell no-border">STARTING DATE<p class="dark-blue">{{facility.startingDate}}</p></div>
+                <div class="divTableRow" style="width: 100%">
+                  <div class="divTableCellSub no-border" style="width: 50%">INTEREST PERIOD<p class="dark-blue">{{row. interestPeriod}}</p></div>
+                  <div class="divTableCellSub no-border" style="width: 50%">STARTING DATE<p class="dark-blue">{{row.startingDate}}</p></div>
                 </div>
-                <div class="divTableRow">
-                  <div class="divTableCell no-border">COMPOUNDING FREQUENCY<p class="dark-blue">{{facility. interestPeriod}}</p></div>
-                  <div class="divTableCell no-border">INTERNAL TYPE<p class="dark-blue">{{facility.internalType}}</p></div>
+                <div class="divTableRow" style="width: 100%">
+                  <div class="divTableCellSub no-border" style="width: 50%">COMPOUNDING FREQUENCY<p class="dark-blue">{{row. interestPeriod}}</p></div>
+                  <div class="divTableCellSub no-border" style="width: 50%">INTERNAL TYPE<p class="dark-blue">{{row.internalType}}</p></div>
                 </div>
-                <div class="divTableRow">
-                  <div class="divTableCell no-border">INTERVAL PERIOD<p class="dark-blue">{{facility. intervalPeriod}}</p></div>
-                  <div class="divTableCell no-border">COUNTRY<p class="dark-blue">{{facility.country}}</p></div>
+                <div class="divTableRow" style="width: 100%">
+                  <div class="divTableCellSub no-border" style="width: 50%">INTERVAL PERIOD<p class="dark-blue">{{row. intervalPeriod}}</p></div>
+                  <div class="divTableCellSub no-border" style="width: 50%">COUNTRY<p class="dark-blue">{{row.country}}</p></div>
                 </div>
               </div>
 
@@ -62,30 +63,36 @@
           </div><br>
         </div>
         <div *ngIf="header.prop=='actualLimit'" class="divTableCell" [ngStyle]="{'width': header.size  + '%','border-right-width':header.border +'px','border-right-style':header.borderType,'border-right-color':header.color}">
-          <p>{{facility.actualLimit}}</p>
+          <p>{{row.actualLimit| number:'1.2-2':'en-US'}}</p>
         </div>
         <div *ngIf="header.prop=='authorizedBalance'" class="divTableCell" [ngStyle]="{'width': header.size  + '%','border-right-width':header.border +'px','border-right-style':header.borderType,'border-right-color':header.color}">
-          <p>{{facility.authorizedAmount}}</p>
+          <p>{{row.authorizedAmount| number:'1.2-2':'en-US'}}</p>
         </div>
         <div *ngIf="header.prop=='requestedAmount'" class="divTableCell" [ngStyle]="{'width': header.size  + '%','border-right-width':header.border +'px','border-right-style':header.borderType,'border-right-color':header.color}">
-          <p>{{facility.requestedAmount}}</p>
+          <p>{{row.requestedAmount| number:'1.2-2':'en-US'}}</p>
         </div>
         <div *ngIf="header.prop=='change'" class="divTableCell" [ngStyle]="{'width': header.size  + '%','border-right-width':header.border +'px','border-right-style':header.borderType,'border-right-color':header.color}">
-          <p>{{facility.requestedAmount-facility.actualLimit}}</p>
+
+          <p *ngIf="row.requestedAmount-row.actualLimit>0" class="green-font">{{row.requestedAmount-row.actualLimit | number:'1.2-2':'en-US'}}</p>
+          <p *ngIf="row.requestedAmount-row.actualLimit<0" class="red-font">{{row.requestedAmount-row.actualLimit | number:'1.2-2':'en-US'}}</p>
+          <p *ngIf="row.requestedAmount-row.actualLimit==0" >{{row.requestedAmount-row.actualLimit | number:'1.2-2':'en-US'}}</p>
+
+
         </div>
+
         <div *ngIf="header.prop=='status'" class="divTableCell" [ngStyle]="{'width': header.size  + '%','border-right-width':header.border +'px','border-right-style':header.borderType,'border-right-color':header.color}">
-          <span *ngIf="facility.status.color==='green'" class="badge rounded-pill green-pill ">{{facility.status.statusDescription}}</span>
-          <span *ngIf="facility.status.color==='yellow'" class="badge rounded-pill yellow-pill ">{{facility.status.statusDescription}}</span>
-          <span *ngIf="facility.status.color==='pink'" class="badge rounded-pill pink-pill ">{{facility.status.statusDescription}}</span>
+          <span *ngIf="row.status.color==='green'" class="badge rounded-pill green-pill ">{{row.status.statusDescription}}</span>
+          <span *ngIf="row.status.color==='yellow'" class="badge rounded-pill yellow-pill ">{{row.status.statusDescription}}</span>
+          <span *ngIf="row.status.color==='pink'" class="badge rounded-pill pink-pill ">{{row.status.statusDescription}}</span>
 
         </div>
         <div *ngIf="header.prop=='attachIcon'" class="divTableCell" [ngStyle]="{'width': header.size  + '%','border-right-width':header.border +'px','border-right-style':header.borderType,'border-right-color':header.color}">
-          <div *ngIf="facility.securities.length!=0" ngbDropdown class="d-inline-block">
+          <div *ngIf="row.securities.length!=0" ngbDropdown class="d-inline-block">
             <button  class="btn no-outline" id="dropdownList2" ngbDropdownToggle><i class="fa fa-link fa-flip-horizontal same-line" ></i></button>
             <div ngbDropdownMenu aria-labelledby="dropdownList2">
               <div ngbDropdownItem class="font-size">
                 <p class="font-gray"> &nbsp; LINKED SECURITIES</p>
-                <div class="divTableRow" *ngFor="let security of facility.securities">
+                <div class="divTableRow" *ngFor="let security of row.securities">
                   <div class="divTableCell border-bottom padding-right">
                     <span class="dark-blue">{{security.description}}</span>
                     <p class="font-gray">{{security.subDescription}}</p>
@@ -95,83 +102,42 @@
             </div>
           </div>
         </div>
-        <div *ngIf="header.prop=='ellipsisIcon'" class="divTableCell" [ngStyle]="{'width': header.size  + '%','border-right-width':header.border +'px','border-right-style':header.borderType,'border-right-color':header.color}">
-          <div ngbDropdown class="d-inline-block same-line icon-position">
-            <button class="btn no-outline"  ngbDropdownToggle><i class="fa fa-ellipsis-h same-line ellipsis-positon"></i></button>
+        <div *ngIf="header.prop=='ellipsisIcon'" class="divTableCell " [ngStyle]="{'width': header.size  + '%','border-right-width':header.border +'px','border-right-style':header.borderType,'border-right-color':header.color}">
+          <div ngbDropdown class="d-inline-block same-line ">
+            <button class="btn no-outline"  ngbDropdownToggle><i class="fa fa-ellipsis-h same-line "></i></button>
             <div ngbDropdownMenu aria-labelledby="dropdownList">
               <button type="button" class="btn col-12 btn-light text-start">Modify</button>
               <button type="button" class="btn col-12 btn-light text-start">Cancel</button>
             </div>
           </div>
         </div>
-
-
       </ng-template>
     </div>
   </ng-template>
-  <div class="divTableRow background-grey align-total font-gray total-height " style="width: 100%">
-    <div class="text-end divTableCell" style="width: 30%">TOTAL DIRECT</div>
-    <div class="divTableCell" style="width: 10%">{{actualLimit | number:'1.2-2':'en-US' }}</div>
-    <div class="divTableCell  border-right" style="width: 15%">{{authorizedBalance | number:'1.2-2':'en-US' }}</div>
-    <div class="divTableCell" style="width: 15%">{{authorizedBalance | number:'1.2-2':'en-US' }}</div>
-    <div class="divTableCell"style="width: 15%" ></div>
-    <div class="divTableCell" style="width: 15%" ></div>
-  </div>
-
-  <div class="divTableRow background-grey align-total font-gray total-height">
-    <div class="text-end divTableCell border-right">TOTAL INDIRECT</div>
-    <div class="divTableCell">{{actualLimit | number:'1.2-2':'en-US' }}</div>
-    <div class="divTableCell border-right">{{authorizedBalance | number:'1.2-2':'en-US' }}</div>
-    <div class="divTableCell">{{authorizedBalance | number:'1.2-2':'en-US' }}</div>
-    <div class="divTableCell" ></div>
-    <div class="divTableCell" ></div>
-  </div>
-
-  <div class="divTableRow background-grey align-total font-gray total-height">
-    <div class="text-end divTableCell border-right">TOTAL PSE</div>
-    <div class="divTableCell">{{actualLimit | number:'1.2-2':'en-US' }}</div>
-    <div class="divTableCell border-right">{{authorizedBalance | number:'1.2-2':'en-US' }}</div>
-    <div class="divTableCell">{{authorizedBalance | number:'1.2-2':'en-US' }}</div>
-    <div class="divTableCell" ></div>
-    <div class="divTableCell" ></div>
-  </div>
-
-  <div class="divTableRow align-total">
-    <div class="td-grey text-end divTableCell total-height border-right dark-blue">TOTAL </div>
-    <div class="divTableCell dark-blue ">{{actualLimit | number:'1.2-2':'en-US' }}</div>
-    <div class="divTableCell border-right dark-blue">{{authorizedBalance | number:'1.2-2':'en-US' }}</div>
-    <div class="divTableCell dark-blue">{{authorizedBalance | number:'1.2-2':'en-US' }}</div>
-    <div class="background-grey divTableCell" ></div>
-    <div class="background-grey divTableCell" ></div>
-  </div>
-
-  <div class="divTableRow background-grey font-gray total-height align-total">
-    <div class="text-end divTableCell border-right">DEDUCTIBLE 100% CASH COLLATERAL</div>
-    <div class="divTableCell">{{actualLimit | number:'1.2-2':'en-US' }}</div>
-    <div class="divTableCell border-right">{{authorizedBalance | number:'1.2-2':'en-US' }}</div>
-    <div class="divTableCell">{{authorizedBalance | number:'1.2-2':'en-US' }}</div>
-    <div class="divTableCell" ></div>
-    <div class="divTableCell" ></div>
-  </div>
-
-  <div class="divTableRow background-grey font-gray align-total total-height">
-    <div class="text-end divTableCell border-right">NET EXPOSED DEDUCTIBLE 100% CASH CO.</div>
-    <div class="divTableCell">{{actualLimit | number:'1.2-2':'en-US' }}</div>
-    <div class="divTableCell border-right total-cell-padding">{{authorizedBalance | number:'1.2-2':'en-US' }}</div>
-    <div class="divTableCell">{{authorizedBalance | number:'1.2-2':'en-US' }}</div>
-    <div class="divTableCell" ></div>
-    <div class="divTableCell" ></div>
-  </div>
-
-  <div  class="stick-bottom align-total blue-row divTableRow" style="width: 100%;">
-    <div class="text-end divTableCell border-right-blue" style="width: 30%;">TOTAL</div>
-    <div class="divTableCell" style="width: 10%;">{{authorizedBalance | number:'1.2-2':'en-US' }}</div>
-    <div class="divTableCell border-right-blue" style="width: 15%;">{{authorizedBalance | number:'1.2-2':'en-US' }}</div>
-    <div class="divTableCell" style="width: 15%;">{{actualLimit | number:'1.2-2':'en-US' }}</div>
-    <div class="divTableCell">{{authorizedBalance | number:'1.2-2':'en-US' }}</div>
-    <div class="divTableCell">&nbsp;</div>
-  </div>
 </div>
+<div class="divTable border-none font-size ">
+<ng-template ngFor let-rowD [ngForOf]="totalData" let-j="index">
+  <div class="divTableRowBorder background-grey">
+    <ng-template ngFor let-totalHeader [ngForOf]="totalHeader" let-i="index">
+      <div *ngIf="totalHeader.prop=='totalDescription'"  class="divTableCell text-end total-height"  [ngStyle]="{'width': totalHeader.size  + '%','border-right-width':totalHeader.border +'px','border-right-style':totalHeader.borderType,'border-right-color':totalHeader.color}" >{{rowD.description}}</div>
+      <ng-template [ngIf]="totalHeader.hasTotal">
+      <div class="divTableCell total-height" [ngStyle]="{'width': totalHeader.size  + '%','border-right-width':totalHeader.border +'px','border-right-style':totalHeader.borderType,'border-right-color':totalHeader.color}">&nbsp;&nbsp;&nbsp;
+        {{trySum(rowD.rowType,totalHeader.prop)}}
+      </div>
+      </ng-template>
+    </ng-template>
+  </div>
+</ng-template>
+  <div class="divTableRow stick-bottom blue-row" style="width: 100%">
+    <div class="divTableCell text-end border-right-blue" style="width: 30% ">TOTAL</div>
+    <div class="divTableCell" style="width: 10%">0</div>
+    <div class="divTableCell" style="width: 15%">0</div>
+    <div class="divTableCell" style="width: 15%">0</div>
+    <div class="divTableCell" style="width: 10%">0</div>
+    <div class="divTableCell" style="width: 20%"></div>
+  </div>
+  </div>
+
 
 
 

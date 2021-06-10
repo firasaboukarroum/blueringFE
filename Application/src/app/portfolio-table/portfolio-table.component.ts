@@ -1,8 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Header } from '../header';
-import {TablaData} from '../tabla-data';
 import { Facility } from '../facility';
 import { FacilityServiceService } from '../facility-service.service';
+import {TotalData} from "../total-data";
+
 
 
 @Component({
@@ -13,33 +14,63 @@ import { FacilityServiceService } from '../facility-service.service';
 export class PortfolioTableComponent implements OnInit {
   facilities: Facility[] = [];
   @Input() tableHeader: Header[] = [];
+  @Input() tableData: Facility[]=[];
   @Input() tableHeaderSecurity: Header[] = [];
-  @Input() tData: TablaData[] = [];
-  @Input() clr: string = 'red';
-  actualLimit = 0;
+  @Input() totalHeader: Header[]=[];
+  @Input() totalData:TotalData[]=[];
+  total = 0;
   authorizedBalance = 0;
 
-  constructor(private facilityService: FacilityServiceService) { }
+  constructor() { }
 
   ngOnInit(): void {
 
-     this.facilityService.getFacilities().subscribe((data: Facility[]) => {
-     this.facilities = data;
-});
-    this.sum();
+
 
   }
 
-   sum(){
-    this.actualLimit=0;
-    this.facilities.map(row=>{
-      this.actualLimit=this.actualLimit+row.actualLimit;
-    }
-    );
-    console.log(this.facilities);
-    return this.actualLimit;
-  }
+
   zeroFunction(){
     return 0;
+  }
+  trySum(type: string, forCol: string){
+    this.total=0;
+    if(forCol=='authorizedBalance') {
+      this.tableData.map(row => {
+          if (row.facilityType == type) {
+            this.total = this.total + row.authorizedAmount;
+          }
+        if(type=='total'){
+          this.total=this.total+row.authorizedAmount;
+        }
+        }
+      );
+    }
+    if(forCol=='actualLimit') {
+      this.tableData.map(row => {
+          if (row.facilityType == type) {
+            this.total = this.total + row.actualLimit;
+          }
+        if(type=='total'){
+          this.total=this.total+row.actualLimit;
+        }
+        }
+      );
+    }
+    if(forCol=='requestedAmount') {
+      this.tableData.map(row => {
+          if (row.facilityType == type) {
+            this.total = this.total + row.requestedAmount;
+          }
+        if(type=='total'){
+          this.total=this.total+row.requestedAmount;
+        }
+        }
+      );
+    }
+
+
+
+    return this.total ;
   }
 }
