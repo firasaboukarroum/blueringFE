@@ -3,6 +3,7 @@ import { Header } from '../header';
 import { Facility } from '../facility';
 import { FacilityServiceService } from '../facility-service.service';
 import {TotalData} from "../total-data";
+import {DecimalPipe} from "@angular/common";
 
 
 
@@ -14,14 +15,16 @@ import {TotalData} from "../total-data";
 export class PortfolioTableComponent implements OnInit {
   facilities: Facility[] = [];
   @Input() tableHeader: Header[] = [];
-  @Input() tableData: Facility[]=[];
+  @Input() tableData: any =[];
   @Input() tableHeaderSecurity: Header[] = [];
   @Input() totalHeader: Header[]=[];
   @Input() totalData:TotalData[]=[];
   total = 0;
+  totalResult: any;
   authorizedBalance = 0;
+  format = '1.2-2';
+  constructor(private decimalPipe: DecimalPipe) { }
 
-  constructor() { }
 
   ngOnInit(): void {
 
@@ -33,44 +36,20 @@ export class PortfolioTableComponent implements OnInit {
   zeroFunction(){
     return 0;
   }
-  trySum(type: string, forCol: string){
+  trySum(type: string, forCol: any){
     this.total=0;
-    if(forCol=='authorizedBalance') {
-      this.tableData.map(row => {
-          if (row.facilityType == type) {
-            this.total = this.total + row.authorizedAmount;
+
+      this.tableData.map((row:any)=> {
+          if (row['facilityType'] == type) {
+            this.total = this.total + row[forCol];
           }
-        if(type=='total'){
-          this.total=this.total+row.authorizedAmount;
+          if(type=='total'){
+            this.total=this.total+row[forCol];
         }
         }
       );
-    }
-    if(forCol=='actualLimit') {
-      this.tableData.map(row => {
-          if (row.facilityType == type) {
-            this.total = this.total + row.actualLimit;
-          }
-        if(type=='total'){
-          this.total=this.total+row.actualLimit;
-        }
-        }
-      );
-    }
-    if(forCol=='requestedAmount') {
-      this.tableData.map(row => {
-          if (row.facilityType == type) {
-            this.total = this.total + row.requestedAmount;
-          }
-        if(type=='total'){
-          this.total=this.total+row.requestedAmount;
-        }
-        }
-      );
-    }
 
-
-
-    return this.total ;
+    this.totalResult=this.decimalPipe.transform(this.total,this.format);
+    return this.totalResult;
   }
 }

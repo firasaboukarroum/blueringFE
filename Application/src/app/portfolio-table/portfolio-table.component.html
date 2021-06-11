@@ -2,7 +2,7 @@
 <div class="divTable border-none font-size ">
   <div class="divTableRowBorder background-grey font-gray" style="width:100%">
     <ng-template ngFor let-header [ngForOf]="tableHeader"  >
-      <div class="divTableCell " [ngStyle]="{'width': header.size  + '%','border-right-width':header.border +'px','border-right-style':header.borderType,'border-right-color':header.color}">
+      <div class="divTableHead " [ngStyle]="{'width': header.size  + '%','border-right-width':header.border +'px','border-right-style':header.borderType,'border-right-color':header.color}">
         <div>{{header.title}}</div>
       </div>
     </ng-template>
@@ -22,7 +22,7 @@
               <div ngbDropdownItem class="font-size ">
 
                 <div class="divTableRow" style="width: 100%">
-                  <div class="divTableCellSub no-border" style="width: 50%" > ECONOMIC SECTOR<p class="dark-blue">{{row.economicSector}}</p></div>
+                  <div class="divTableCellSub no-border" style="width: 50%">ECONOMIC SECTOR<p class="dark-blue">{{row.economicSector}}</p></div>
                   <div class="divTableCellSub no-border" style="width: 50%">PENALTY RATE<p class="font-orange">{{row.penaltyRate}}</p></div>
                 </div>
                 <div class="divTableRow" style="width: 100%">
@@ -87,12 +87,12 @@
 
         </div>
         <div *ngIf="header.prop=='attachIcon'" class="divTableCell" [ngStyle]="{'width': header.size  + '%','border-right-width':header.border +'px','border-right-style':header.borderType,'border-right-color':header.color}">
-          <div *ngIf="row.securities.length!=0" ngbDropdown class="d-inline-block">
+          <div *ngIf="row['securities'].length!=0" ngbDropdown class="d-inline-block">
             <button  class="btn no-outline" id="dropdownList2" ngbDropdownToggle><i class="fa fa-link fa-flip-horizontal same-line" ></i></button>
             <div ngbDropdownMenu aria-labelledby="dropdownList2">
               <div ngbDropdownItem class="font-size">
                 <p class="font-gray"> &nbsp; LINKED SECURITIES</p>
-                <div class="divTableRow" *ngFor="let security of row.securities">
+                <div class="divTableRow" *ngFor="let security of row['securities']">
                   <div class="divTableCell border-bottom padding-right">
                     <span class="dark-blue">{{security.description}}</span>
                     <p class="font-gray">{{security.subDescription}}</p>
@@ -129,10 +129,10 @@
   </div>
 </ng-template>
   <div class="divTableRow stick-bottom blue-row" style="width: 100%">
-    <div class="divTableCell text-end border-right-blue" style="width: 30% ">TOTAL</div>
-    <div class="divTableCell" style="width: 10%">0</div>
-    <div class="divTableCell" style="width: 15%">0</div>
-    <div class="divTableCell" style="width: 15%">0</div>
+    <div class="divTableCell text-end border-right-blue-thick" style="width: 30% ">TOTAL</div>
+    <div class="divTableCell border-right-blue" style="width: 10%">0</div>
+    <div class="divTableCell border-right-blue-thick" style="width: 15%">0</div>
+    <div class="divTableCell border-right-blue" style="width: 15%">0</div>
     <div class="divTableCell" style="width: 10%">0</div>
     <div class="divTableCell" style="width: 20%"></div>
   </div>

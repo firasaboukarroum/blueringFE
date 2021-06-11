@@ -3,13 +3,14 @@ import {Header} from './header';
 import {TotalData} from "./total-data";
 import {FacilityServiceService} from "./facility-service.service";
 import {Facility} from "./facility";
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  facilities: Facility[] = [];
+  facilities :Facility[] = [];
   constructor(private facilityService: FacilityServiceService) { }
 
   ngOnInit(): void {
@@ -17,6 +18,7 @@ export class AppComponent {
     this.facilityService.getFacilities().subscribe((data: Facility[]) => {
       this.facilities = data;
     });
+
 
 
   }

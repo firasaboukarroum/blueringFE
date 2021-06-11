@@ -19,7 +19,6 @@
 
 .red-font{
 	color: #C70000;
-	padding: 3px 10px;
 }
 
 .fa-bars{
@@ -71,12 +70,19 @@ i {
 	border-radius: 3px 3px 0px 0px;
 	opacity: 1;
 }
-.divTableCell, .divTableHead {
+.divTableHead{
+  display: inline-block;
+  padding-right: 10px;
+  margin: 0px 0px 0px 0px;
+  text-align: right;
+  height: 100% !important;
+}
+.divTableCell{
 
   display: inline-block;
-	padding: 0px 0px 0px 0px;
+  padding-right: 10px;
   margin: 0px 0px 0px 0px;
-  text-align: center;
+  text-align: right;
   height: 100% !important;
 
 }
@@ -168,16 +174,20 @@ float-left{
 
 .green-font{
 	color:#20C36B;
-	padding: 3px 10px;
+
 }
 .stick-bottom{
 	position: fixed;
     bottom: 0
 }
+.border-right-blue-thick{
+	border-right: 5px solid #BEDBFF;
+}
+.divTableRowBorder .divTableHead:first-of-type{
+  text-align: left;
+}
 .border-right-blue{
-	border-right-width: 5px;
-	border-right-color: #BEDBFF;
-
+  border-right: 1px solid #BEDBFF;
 }
 .font-size{
 font-size:14px;

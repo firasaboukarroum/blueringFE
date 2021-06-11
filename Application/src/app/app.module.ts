@@ -7,13 +7,14 @@ import { PortfolioTableComponent } from './portfolio-table/portfolio-table.compo
 import {FormsModule} from '@angular/forms';
 import { NumericTextboxModule } from 'ngx-numeric-textbox';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {DecimalPipe} from "@angular/common";
 
 @NgModule({
   declarations: [
     AppComponent,
     PortfolioTableComponent,
-    
-    
+
+
   ],
   imports: [
     BrowserModule,
@@ -23,7 +24,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HttpClientModule,
     NgbModule
   ],
-  providers: [],
+  providers: [DecimalPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
