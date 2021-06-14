@@ -44,6 +44,7 @@
 }
 small{
 	font-weight: 200;
+  display: block;
 }
 
 .same-line{
@@ -55,7 +56,10 @@ i {
 	vertical-align: middle;
 
 }
-
+.divTableRowBorder .blue-color-font:first-child{
+  color: #1B3454;
+  font-weight: 500;
+}
 .divTable{
 	width: 100%;
 	color: gray
@@ -146,6 +150,7 @@ i {
 }
 small{
 	color:#6E6E6E;
+  margin-top: 10px;
 }
 
 
@@ -158,6 +163,7 @@ float-left{
 
 .font-gray{
 	color: #6E6E6E;
+  font-weight: 300;
 }
 
 .blue-row{
@@ -186,6 +192,7 @@ float-left{
 .divTableRowBorder .divTableHead:first-of-type{
   text-align: left;
 }
+
 .border-right-blue{
   border-right: 1px solid #BEDBFF;
 }

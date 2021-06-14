@@ -7,4 +7,7 @@ export interface Header {
 	color: any;
   borderType:string;
   hasTotal:boolean;
+  hasSubDescription: boolean;
+  linkType:string;
+  linkTitle:string;
 }

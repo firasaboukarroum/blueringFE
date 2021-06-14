@@ -7,7 +7,7 @@ import { PortfolioTableComponent } from './portfolio-table/portfolio-table.compo
 import {FormsModule} from '@angular/forms';
 import { NumericTextboxModule } from 'ngx-numeric-textbox';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import {DecimalPipe} from "@angular/common";
+import {CommonModule, DecimalPipe} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -24,7 +24,7 @@ import {DecimalPipe} from "@angular/common";
     HttpClientModule,
     NgbModule
   ],
-  providers: [DecimalPipe],
+  providers: [DecimalPipe,CommonModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

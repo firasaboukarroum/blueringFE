@@ -16,7 +16,6 @@ export class PortfolioTableComponent implements OnInit {
   facilities: Facility[] = [];
   @Input() tableHeader: Header[] = [];
   @Input() tableData: any =[];
-  @Input() tableHeaderSecurity: Header[] = [];
   @Input() totalHeader: Header[]=[];
   @Input() totalData:TotalData[]=[];
   total = 0;
