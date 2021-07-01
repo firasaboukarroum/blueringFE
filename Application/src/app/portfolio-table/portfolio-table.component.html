@@ -1,10 +1,19 @@
 
-<div class="divTable border-none font-size dark-blue">
-  <div class="divTableRowBorder background-grey font-gray" style="width:100%">
+<div class="divTable font-size">
+  <div class="divTableRowHeader background-grey font-gray" style="width:100%">
     <ng-template ngFor let-header [ngForOf]="tableHeader"  >
-      <div class="divTableHead " [ngStyle]="{'width': header.size  + '%','border-right-width':header.border +'px','border-right-style':header.borderType,'border-right-color':header.color}">
-        <div>{{header.title}}</div>
-      </div>
+      <ng-container [ngSwitch]="header.title">
+        <div *ngSwitchCase="'STATUS'" class="status-position divTableHead "
+             [ngStyle]="{'width': header.size  + '%','border-right-width':header.border +'px','border-right-style':header.borderType,'border-right-color':header.color}">
+          {{header.title}}
+        </div>
+        <div *ngSwitchCase="''"  class="divTableHead " [ngStyle]="{'width': header.size  + '%','border-right-width':header.border +'px','border-right-style':header.borderType,'border-right-color':header.color}">
+         &nbsp;
+        </div>
+        <div *ngSwitchDefault  class="divTableHead " [ngStyle]="{'width': header.size  + '%','border-right-width':header.border +'px','border-right-style':header.borderType,'border-right-color':header.color}">
+          {{header.title}}
+        </div>
+      </ng-container>
     </ng-template>
   </div>
   <ng-template ngFor let-row [ngForOf]="tableData" let-j="index">
@@ -12,13 +21,22 @@
       <ng-template ngFor let-header [ngForOf]="tableHeader" let-i="index">
         <ng-container [ngSwitch]="header.prop">
           <div *ngSwitchCase="'iconMoreButtons'"  class="divTableCell" [ngStyle]="{'width': header.size  + '%','border-right-width':header.border +'px','border-right-style':header.borderType,'border-right-color':header.color}">
-            <div ngbDropdown class=" same-line  dropdown-menu-center">
-              <button class="btn no-outline " id="dropdownList" ngbDropdownToggle><i class="fa fa-bars rounded-circle "></i></button>
-              <div ngbDropdownMenu aria-labelledby="dropdownList"  class="dropdown-menu-moreButtons" style="position: absolute; ">
+            <div ngbDropdown class="dropdown-menu-center">
+              <button class="btn no-outline " id="dropdownList" ngbDropdownToggle><i class="fa fa-bars rounded-circle "style="font-size: 10px;"></i></button>
+              <div ngbDropdownMenu aria-labelledby="dropdownList"  class="dropdown-menu-moreButtons" style="position: absolute;width: 700px ">
                 <div ngbDropdownItem class="font-size ">
-                  <div class="divTableRow" style="width: 100%">
-                    <div class="divTableCellSub no-border" style="width: 50%">ECONOMIC SECTOR<p class="dark-blue">{{row.economicSector}}</p></div>
-                    <div class="divTableCellSub no-border" style="width: 50%">PENALTY RATE<p class="font-orange">{{row.penaltyRate}}</p></div>
+                  <div class="divTableRow container">
+                    <div class="row">
+                    <ng-template ngFor let-MoreButtonRow [ngForOf]="row.moreButtons" let-i="index">
+                      <div class="col-6 moreButtonTextPadding">
+                        <div class="font-gray transform_upperCase">{{MoreButtonRow.title}}</div>
+                        <div class="dark-blue text-break" *ngIf="MoreButtonRow.textChanged=='no'">{{MoreButtonRow.value}}</div>
+                        <div class="dark-blue line-through text-break" *ngIf="MoreButtonRow.textChanged=='deleted'">from {{MoreButtonRow.value}}</div>
+                        <div class="font-orange text-break" *ngIf="MoreButtonRow.textChanged!='deleted' &&MoreButtonRow.textChanged!='no'">from {{MoreButtonRow.textChanged}} to {{MoreButtonRow.value}}</div>
+                      </div>
+
+                    </ng-template>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -32,7 +50,7 @@
                 <div ngbDropdownItem class="font-size">
                   <p class="font-gray"> {{header.linkTitle}}</p>
                   <div class="divTableRow" *ngFor="let linkRow of row[header.linkType]">
-                    <div class="divTableCell border-bottom padding-right">
+                    <div class="border-bottom">
                       <span class="dark-blue">{{linkRow.description}}</span>
                       <p class="font-gray">{{linkRow.subDescription}}</p>
                     </div>
@@ -66,16 +84,18 @@
 
           </div>
 
-          <div *ngSwitchDefault   class="divTableCell blue-color-font vertical-align-middle " [ngStyle]="{'width': header.size  + '%','border-right-width':header.border +'px','border-right-style':header.borderType,'border-right-color':header.color}">
+
+          <div *ngSwitchDefault    class="divTableCell dark-blue" [ngStyle]="{'width': header.size  + '%','border-right-width':header.border +'px','border-right-style':header.borderType,'border-right-color':header.color}">
+           <div *ngIf="row[header.prop]==0" >&nbsp;</div>
             <div *ngIf="row[header.prop]!=0">
               <div *ngIf="row[header.prop]>-9999999999999999 && row[header.prop]<9999999999999; else isNotNum">
                {{row[header.prop]  | number:'1.2-2':'en-US'}}
               </div>
               <ng-template #isNotNum>
-                {{row[header.prop]}}
+                <div class="align-left"> {{row[header.prop]}}</div>
               </ng-template>
             </div>
-            <small *ngIf="header.hasSubDescription">{{row.subDescription}}</small>
+            <small class="align-left" *ngIf="header.hasSubDescription">{{row.subDescription}}</small>
           </div>
         </ng-container>
       </ng-template>
@@ -87,14 +107,16 @@
   <div class="divTableRowBorder background-grey">
     <ng-template ngFor let-totalHeader [ngForOf]="totalHeader" let-i="index">
       <div *ngIf="totalHeader.prop=='totalDescription'"  class="divTableCell text-end total-height"  [ngStyle]="{'width': totalHeader.size  + '%','border-right-width':totalHeader.border +'px','border-right-style':totalHeader.borderType,'border-right-color':totalHeader.color}" >{{rowD.description}}</div>
+
       <ng-template [ngIf]="totalHeader.hasTotal">
       <div class="divTableCell total-height" [ngStyle]="{'width': totalHeader.size  + '%','border-right-width':totalHeader.border +'px','border-right-style':totalHeader.borderType,'border-right-color':totalHeader.color}">&nbsp;&nbsp;&nbsp;
         {{trySum(rowD.rowType,totalHeader.prop)}}
       </div>
-      </ng-template>
+        </ng-template>
     </ng-template>
   </div>
 </ng-template>
+  <ng-container *ngIf="totalFixed">
   <div class="divTableRow stick-bottom blue-row" style="width: 100%">
     <div class="divTableCell text-end border-right-blue-thick" style="width: 30% ">TOTAL</div>
     <div class="divTableCell border-right-blue" style="width: 10%">0</div>
@@ -103,6 +125,7 @@
     <div class="divTableCell" style="width: 10%">0</div>
     <div class="divTableCell" style="width: 20%"></div>
   </div>
+  </ng-container>
   </div>
 
 

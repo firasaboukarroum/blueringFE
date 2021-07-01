@@ -1,5 +1,6 @@
 import { Security } from './security';
 import { Status } from './status';
+import {MoreButton} from "./more-button";
 
 export class Facility {
 	id! : number;
@@ -8,25 +9,8 @@ export class Facility {
 	actualLimit! : number;
 	authorizedAmount! : number;
 	requestedAmount! : number;
-	facilityChange! : number;
-	economicSector! : string;
-	interestType! : string;
-	spreadOrRate! : number;
-	reviewDate! : Date;
-	interestRate! : number;
-	interestPeriod! : string;
-	baseRate! : string;
-	intervalPeriod! : number;
-	penaltyRate! : string;
-	CHDBCommissionPerMill! : number;
-	sourceOfRepayment! : string;
-	useOfFunds! : string;
-	repaymentTerms! : string;
-	totalNumberOfPayments! : number;
-	startingDate! : Date;
-	internalType! : string;
-	country! : string;
 	securities: Security[]=[];
 	status!: Status;
 	facilityType!: string;
+  moreButtons: MoreButton[]=[];
 }

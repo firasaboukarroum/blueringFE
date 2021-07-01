@@ -18,11 +18,13 @@ export class PortfolioTableComponent implements OnInit {
   @Input() tableData: any =[];
   @Input() totalHeader: Header[]=[];
   @Input() totalData:TotalData[]=[];
+  @Input() totalFixed:boolean=false;
   total = 0;
+  checkNumResult!:boolean;
   totalResult: any;
-  authorizedBalance = 0;
   format = '1.2-2';
   constructor(private decimalPipe: DecimalPipe) { }
+
 
 
   ngOnInit(): void {
@@ -32,8 +34,12 @@ export class PortfolioTableComponent implements OnInit {
   }
 
 
-  zeroFunction(){
-    return 0;
+
+  isNum(value: any){
+    if(typeof(value)=='number'){
+      this.checkNumResult=true;
+    }
+    return this.checkNumResult;
   }
   trySum(type: string, forCol: any){
     this.total=0;

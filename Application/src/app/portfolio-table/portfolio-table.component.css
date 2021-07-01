@@ -1,20 +1,19 @@
-
 .background-grey{
-	background-color: #FAFAFA;
-
+	background-color: #F5F5F5;
 }
 
 .dark-blue{
+  font-size:14px;
 	color: #1B3454;
 	font-weight: 500;
+  line-spacing:16 ;
+}
+
+.line-through{
+  text-decoration: line-through
 }
 .dropdown-toggle::after {
     display:none;
-}
-.rounded{
-	border: 1px solid;
-	border-radius: 50%;
-	padding: 2px;
 }
 
 .red-font{
@@ -24,7 +23,7 @@
 .fa-bars{
 	color: #4D91E4;
 	padding: 5px;
-	border: 3px solid #4D91E4;
+	border: 2px solid #4D91E4;
 }
 
 .green-pill{
@@ -47,10 +46,7 @@ small{
   display: block;
 }
 
-.same-line{
-	display: inline;
-	padding: 10px;
-}
+
 i {
 	float: right;
 	vertical-align: middle;
@@ -60,35 +56,42 @@ i {
   color: #1B3454;
   font-weight: 500;
 }
+
 .divTable{
 	width: 100%;
-	color: gray
+  border: 1px #E8E8E8;
+  font-family: Ubuntu;
+  color: #6E6E6E;
+
 }
 
 
-.divTableHeading {
 
-
-	height: 32px;
-	background: #F5F5F5 0% 0% no-repeat padding-box;
-	border-radius: 3px 3px 0px 0px;
-	opacity: 1;
+.text-break{
+  word-wrap:break-word;
+  white-space: break-spaces;
 }
 .divTableHead{
   display: inline-block;
   padding-right: 10px;
   margin: 0px 0px 0px 0px;
   text-align: right;
-  height: 100% !important;
+  color: #6E6E6E;
 }
 .divTableCell{
-
   display: inline-block;
   padding-right: 10px;
-  margin: 0px 0px 0px 0px;
   text-align: right;
-  height: 100% !important;
+  padding-top: 15px;
+  padding-bottom: 20px;
 
+}
+.moreButtonTextPadding{
+  padding-bottom: 15px;
+}
+.padding-test{
+  padding-bottom: 30px;
+  padding-top: 30px;
 }
 .divTableHeading {
 	background-color: #EEE;
@@ -104,53 +107,40 @@ i {
 
 	color: #003366;
 }
-.table-border{
-	border: 1px solid whitesmoke;
-
-}
-.cell-border{
-	border: 1px solid whitesmoke;
-	background-color: #FAFAFA;
-	color: gray;
-}
-
-
 
 .text-end{
   padding-right: 10px;
 }
-.divTableRowBorder .divTableCell:first-of-type {
-  text-align: left;
+
+.divTableRowHeader{
+  border-bottom: 1px solid #f5f5ff !important;
+  padding: 0px 10px;
 
 
 }
 .divTableRowBorder{
-  border-bottom: 1px solid #f5f5ff !important;
-  padding: 10px;
-  padding: 10px;
+  border-bottom: 1px solid #E8E8E8 !important;
+  padding: 0px 10px;
+  display: flex;
+}
+.align-left{
+  text-align:left;
 }
 
+align-right{
+  text-align: end;
+}
 .total-height{
 	height: 50px;
 }
 .align-total{
-
   padding-left: 2px;
+}
 
-}
-.float-right{
-	float: right;
-}
-.border-right{
-	border-right-width: 5px;
-	border-right-color: #F5F5F5;
-}
-.border-none{
-  border: none;
-}
+
+
 small{
 	color:#6E6E6E;
-  margin-top: 10px;
 }
 
 
@@ -168,9 +158,8 @@ float-left{
 
 .blue-row{
 	background-color: #E5EFFB;
-	color: #1B3454;
-	height: 50px;
-  padding-bottom: 13px;
+  color:#305C94;
+	height: 40px;
   font-weight: 500;
   font-size: 15px;
 
@@ -189,8 +178,9 @@ float-left{
 .border-right-blue-thick{
 	border-right: 5px solid #BEDBFF;
 }
-.divTableRowBorder .divTableHead:first-of-type{
+.divTableRowHeader .divTableHead:first-of-type{
   text-align: left;
+
 }
 
 .border-right-blue{
@@ -223,5 +213,12 @@ left: -250px ! important;
   padding: 0px 0px 0px 0px;
   margin-right: 100px;
   text-align: start;
-  height: 100% !important;
+
+}
+.status-position{
+  text-align: start;
+  padding-left:20px;
+}
+.transform_upperCase{
+  text-transform: capitalize;
 }
